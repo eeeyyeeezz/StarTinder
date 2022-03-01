@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		263E6B0A27CE443A00DDFE91 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263E6B0927CE443A00DDFE91 /* Constraints.swift */; };
+		263E6B0C27CE601000DDFE91 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263E6B0B27CE601000DDFE91 /* Gesture.swift */; };
 		2662369B27CE229200C783D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662369A27CE229200C783D1 /* AppDelegate.swift */; };
 		2662369D27CE229200C783D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662369C27CE229200C783D1 /* SceneDelegate.swift */; };
-		2662369F27CE229200C783D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662369E27CE229200C783D1 /* ViewController.swift */; };
-		266236A227CE229300C783D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 266236A027CE229300C783D1 /* Main.storyboard */; };
+		2662369F27CE229200C783D1 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662369E27CE229200C783D1 /* SwipeView.swift */; };
 		266236A527CE229300C783D1 /* StarTinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 266236A327CE229300C783D1 /* StarTinder.xcdatamodeld */; };
 		266236A727CE229300C783D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266236A627CE229300C783D1 /* Assets.xcassets */; };
 		266236AA27CE229300C783D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 266236A827CE229300C783D1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2662369727CE229200C783D1 /* StarTinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarTinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		263E6B0927CE443A00DDFE91 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		263E6B0B27CE601000DDFE91 /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
+		2662369727CE229200C783D1 /* RateMars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateMars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2662369A27CE229200C783D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2662369C27CE229200C783D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2662369E27CE229200C783D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		266236A127CE229300C783D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2662369E27CE229200C783D1 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 		266236A427CE229300C783D1 /* StarTinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StarTinder.xcdatamodel; sourceTree = "<group>"; };
 		266236A627CE229300C783D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		266236A927CE229300C783D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,7 +44,7 @@
 		2662368E27CE229200C783D1 = {
 			isa = PBXGroup;
 			children = (
-				2662369927CE229200C783D1 /* StarTinder */,
+				2662369927CE229200C783D1 /* RateMars */,
 				2662369827CE229200C783D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,22 +52,22 @@
 		2662369827CE229200C783D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2662369727CE229200C783D1 /* StarTinder.app */,
+				2662369727CE229200C783D1 /* RateMars.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2662369927CE229200C783D1 /* StarTinder */ = {
+		2662369927CE229200C783D1 /* RateMars */ = {
 			isa = PBXGroup;
 			children = (
 				266236B227CE251100C783D1 /* Presenter */,
 				266236A627CE229300C783D1 /* Assets.xcassets */,
 				266236AB27CE229300C783D1 /* Info.plist */,
 				266236A327CE229300C783D1 /* StarTinder.xcdatamodeld */,
+				266236A827CE229300C783D1 /* LaunchScreen.storyboard */,
 				266236B127CE250B00C783D1 /* Sources */,
-				266236B327CE251D00C783D1 /* Storyboard */,
 			);
-			path = StarTinder;
+			path = RateMars;
 			sourceTree = "<group>";
 		};
 		266236B127CE250B00C783D1 /* Sources */ = {
@@ -80,26 +82,19 @@
 		266236B227CE251100C783D1 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				2662369E27CE229200C783D1 /* ViewController.swift */,
+				2662369E27CE229200C783D1 /* SwipeView.swift */,
+				263E6B0927CE443A00DDFE91 /* Constraints.swift */,
+				263E6B0B27CE601000DDFE91 /* Gesture.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		266236B327CE251D00C783D1 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				266236A027CE229300C783D1 /* Main.storyboard */,
-				266236A827CE229300C783D1 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2662369627CE229200C783D1 /* StarTinder */ = {
+		2662369627CE229200C783D1 /* RateMars */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 266236AE27CE229300C783D1 /* Build configuration list for PBXNativeTarget "StarTinder" */;
+			buildConfigurationList = 266236AE27CE229300C783D1 /* Build configuration list for PBXNativeTarget "RateMars" */;
 			buildPhases = (
 				2662369327CE229200C783D1 /* Sources */,
 				2662369427CE229200C783D1 /* Frameworks */,
@@ -109,9 +104,9 @@
 			);
 			dependencies = (
 			);
-			name = StarTinder;
+			name = RateMars;
 			productName = StarTinder;
-			productReference = 2662369727CE229200C783D1 /* StarTinder.app */;
+			productReference = 2662369727CE229200C783D1 /* RateMars.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2662369227CE229200C783D1 /* Build configuration list for PBXProject "StarTinder" */;
+			buildConfigurationList = 2662369227CE229200C783D1 /* Build configuration list for PBXProject "RateMars" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -142,7 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2662369627CE229200C783D1 /* StarTinder */,
+				2662369627CE229200C783D1 /* RateMars */,
 			);
 		};
 /* End PBXProject section */
@@ -154,7 +149,6 @@
 			files = (
 				266236AA27CE229300C783D1 /* LaunchScreen.storyboard in Resources */,
 				266236A727CE229300C783D1 /* Assets.xcassets in Resources */,
-				266236A227CE229300C783D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2662369F27CE229200C783D1 /* ViewController.swift in Sources */,
+				2662369F27CE229200C783D1 /* SwipeView.swift in Sources */,
 				2662369B27CE229200C783D1 /* AppDelegate.swift in Sources */,
+				263E6B0A27CE443A00DDFE91 /* Constraints.swift in Sources */,
+				263E6B0C27CE601000DDFE91 /* Gesture.swift in Sources */,
 				2662369D27CE229200C783D1 /* SceneDelegate.swift in Sources */,
 				266236A527CE229300C783D1 /* StarTinder.xcdatamodeld in Sources */,
 			);
@@ -175,14 +171,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		266236A027CE229300C783D1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				266236A127CE229300C783D1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		266236A827CE229300C783D1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -313,13 +301,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = StarTinder/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RateMars/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gmorra.StarTinder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RateMars;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -330,13 +318,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = StarTinder/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RateMars/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gmorra.StarTinder;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RateMars;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -345,7 +333,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2662369227CE229200C783D1 /* Build configuration list for PBXProject "StarTinder" */ = {
+		2662369227CE229200C783D1 /* Build configuration list for PBXProject "RateMars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				266236AC27CE229300C783D1 /* Debug */,
@@ -354,7 +342,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		266236AE27CE229300C783D1 /* Build configuration list for PBXNativeTarget "StarTinder" */ = {
+		266236AE27CE229300C783D1 /* Build configuration list for PBXNativeTarget "RateMars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				266236AF27CE229300C783D1 /* Debug */,
