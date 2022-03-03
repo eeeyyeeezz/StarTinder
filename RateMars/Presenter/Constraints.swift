@@ -15,11 +15,19 @@ extension SwipeView{
 		navigationController?.navigationBar.isTranslucent = true
 		navigationController?.view.backgroundColor = .clear
 		
-		SpaceBackground.addSubview(RateLabel)
 		view.addSubview(SpaceBackground)
+		SpaceBackground.addSubview(RateLabel)
+		SpaceBackground.addSubview(TransparentView)
 		view.addSubview(SpacePic)
 		SpacePic.addSubview(ThumbsPic)
  
+		NSLayoutConstraint.activate([
+			TransparentView.centerXAnchor.constraint(equalTo: SpaceBackground.centerXAnchor),
+			TransparentView.centerYAnchor.constraint(equalTo: SpaceBackground.centerYAnchor),
+			TransparentView.trailingAnchor.constraint(equalTo: SpaceBackground.trailingAnchor, constant: -25),
+			TransparentView.heightAnchor.constraint(equalToConstant: 450)
+		])
+		
 		NSLayoutConstraint.activate([
 			SpacePic.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			SpacePic.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -28,8 +36,8 @@ extension SwipeView{
 		])
 		
 		NSLayoutConstraint.activate([
-			RateLabel.bottomAnchor.constraint(equalTo: SpacePic.topAnchor, constant: -20),
-			RateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+			RateLabel.topAnchor.constraint(equalTo: TransparentView.topAnchor, constant: 0),
+			RateLabel.leadingAnchor.constraint(equalTo: TransparentView.leadingAnchor, constant: 5),
 			RateLabel.widthAnchor.constraint(equalToConstant: 700),
 			RateLabel.heightAnchor.constraint(equalToConstant: 100)
 		])

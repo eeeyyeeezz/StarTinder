@@ -14,6 +14,13 @@ class SwipeView: UIViewController {
 		return image
 	}()
 	
+	let TransparentView: UIView = {
+		let view = UIView()
+		view.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+		view.translatesAutoresizingMaskIntoConstraints = false
+		return view
+	}()
+	
 	let RateLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Rate NASA Pic of the Day!"
