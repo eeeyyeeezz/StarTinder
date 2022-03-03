@@ -3,7 +3,7 @@ import Foundation
 extension SwipeView{
 	func	ParsJSON(){
 		let decoder = JSONDecoder()
-		let year = Int.random(in: 1995...2021)
+		let year = Int.random(in: 1995...2022)
 		let month = Int.random(in: 01...12)
 		let day = Int.random(in: 01...28)
 		let date = String(year) + "-" + String(format: "%02d", month) + "-" + String(format: "%02d", day)
@@ -18,7 +18,7 @@ extension SwipeView{
 			do {
 				let newJSON = try decoder.decode(NasaJSON.self, from: data)
 				self.completionHandler?(newJSON)
-			} catch { print(error) }
+			} catch { print(error) ; self.ParsJSON() }
 		}
 		session.resume()
 	}

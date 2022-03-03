@@ -15,25 +15,33 @@ extension SwipeView{
 		navigationController?.navigationBar.isTranslucent = true
 		navigationController?.view.backgroundColor = .clear
 		
+		SpaceBackground.addSubview(RateLabel)
 		view.addSubview(SpaceBackground)
-		view.addSubview(MarsPic)
-		MarsPic.addSubview(ThumbsPic)
+		view.addSubview(SpacePic)
+		SpacePic.addSubview(ThumbsPic)
  
 		NSLayoutConstraint.activate([
-			MarsPic.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			MarsPic.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-			MarsPic.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-			MarsPic.heightAnchor.constraint(equalToConstant: 250)
+			SpacePic.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			SpacePic.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+			SpacePic.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+			SpacePic.heightAnchor.constraint(equalToConstant: 250)
 		])
 		
 		NSLayoutConstraint.activate([
-			ThumbsPic.centerXAnchor.constraint(equalTo: MarsPic.centerXAnchor),
-			ThumbsPic.centerYAnchor.constraint(equalTo: MarsPic.centerYAnchor),
-			ThumbsPic.trailingAnchor.constraint(equalTo: MarsPic.trailingAnchor, constant: -50),
+			RateLabel.bottomAnchor.constraint(equalTo: SpacePic.topAnchor, constant: -20),
+			RateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+			RateLabel.widthAnchor.constraint(equalToConstant: 700),
+			RateLabel.heightAnchor.constraint(equalToConstant: 100)
+		])
+		
+		NSLayoutConstraint.activate([
+			ThumbsPic.centerXAnchor.constraint(equalTo: SpacePic.centerXAnchor),
+			ThumbsPic.centerYAnchor.constraint(equalTo: SpacePic.centerYAnchor),
+			ThumbsPic.trailingAnchor.constraint(equalTo: SpacePic.trailingAnchor, constant: -50),
 			ThumbsPic.heightAnchor.constraint(equalToConstant: 100)
 		])
 		
-		MarsPic.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture)))
+		SpacePic.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture)))
 	}
 	
 	@objc func GoToSavedDataView() { navigationController?.pushViewController(SavedDataView(), animated: true) }

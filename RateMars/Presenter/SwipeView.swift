@@ -14,7 +14,16 @@ class SwipeView: UIViewController {
 		return image
 	}()
 	
-	let MarsPic: UIImageView = {
+	let RateLabel: UILabel = {
+		let label = UILabel()
+		label.text = "Rate NASA Pic of the Day!"
+		label.font = label.font.withSize(30)
+		label.textColor = .white
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()	
+	
+	let SpacePic: UIImageView = {
 		let image = UIImageView()
 		image.isUserInteractionEnabled = true
 		image.image = UIImage(named: "SpaceBackground")
@@ -32,6 +41,7 @@ class SwipeView: UIViewController {
 	
 	var divisor: CGFloat?
 	var completionHandler: ((NasaJSON) -> ())?
+	var Pictures: [Pictures]?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
