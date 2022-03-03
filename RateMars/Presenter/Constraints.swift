@@ -6,7 +6,7 @@ extension SwipeView{
 		let menuButton = UIBarButtonItem(image: UIImage(systemName: "list.dash"),
 										 style: .plain,
 										 target: self,
-										 action: nil)
+										 action: #selector(GoToSavedDataView))
 		navigationItem.rightBarButtonItem = menuButton
 		navigationController!.navigationItem.rightBarButtonItem = menuButton
 		navigationController!.navigationItem.rightBarButtonItem?.tintColor = .white
@@ -35,4 +35,6 @@ extension SwipeView{
 		
 		MarsPic.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture)))
 	}
+	
+	@objc func GoToSavedDataView() { navigationController?.pushViewController(SavedDataView(), animated: true) }
 }

@@ -3,7 +3,6 @@ import UIKit
 extension SwipeView{
 
 	@objc func handlePanGesture(recognizer: UIPanGestureRecognizer){
-		
 		if recognizer.state == .began {
 			
 		} else if recognizer.state == .changed {
@@ -55,11 +54,18 @@ extension SwipeView{
 				self.MarsPic.center.x = self.view.center.x
 			})
 		} else {
+			ParsJSON()
 			UIView.animate(withDuration: 0, delay: 1, options: [], animations: {
 				self.MarsPic.transform = .identity
 				self.MarsPic.center = self.view.center
 			})
+			completionHandler = { NewJSON in
+				DispatchQueue.main.async {
+					self.loadImage(NewJSON)
+				}
+			}
 		}
+		
 		ThumbsPic.alpha = 0
 	}
 	

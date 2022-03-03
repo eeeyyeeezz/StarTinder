@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262B4D8727D0C8F40028800A /* SavedDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B4D8627D0C8F40028800A /* SavedDataView.swift */; };
+		262B4D8927D0CC400028800A /* ParsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B4D8827D0CC400028800A /* ParsJSON.swift */; };
+		262B4D8B27D0CC760028800A /* StructJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B4D8A27D0CC760028800A /* StructJSON.swift */; };
+		262B4D8D27D0D53E0028800A /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B4D8C27D0D53E0028800A /* LoadImage.swift */; };
 		263E6B0A27CE443A00DDFE91 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263E6B0927CE443A00DDFE91 /* Constraints.swift */; };
 		263E6B0C27CE601000DDFE91 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263E6B0B27CE601000DDFE91 /* Gesture.swift */; };
 		2662369B27CE229200C783D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662369A27CE229200C783D1 /* AppDelegate.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		262B4D8627D0C8F40028800A /* SavedDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDataView.swift; sourceTree = "<group>"; };
+		262B4D8827D0CC400028800A /* ParsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsJSON.swift; sourceTree = "<group>"; };
+		262B4D8A27D0CC760028800A /* StructJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructJSON.swift; sourceTree = "<group>"; };
+		262B4D8C27D0D53E0028800A /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
 		263E6B0927CE443A00DDFE91 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		263E6B0B27CE601000DDFE91 /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		2662369727CE229200C783D1 /* RateMars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateMars.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +49,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		262B4D8427D0C8B60028800A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				262B4D8827D0CC400028800A /* ParsJSON.swift */,
+				262B4D8A27D0CC760028800A /* StructJSON.swift */,
+				262B4D8C27D0D53E0028800A /* LoadImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		262B4D8527D0C8BE0028800A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				262B4D8627D0C8F40028800A /* SavedDataView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		2662368E27CE229200C783D1 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +86,8 @@
 		2662369927CE229200C783D1 /* RateMars */ = {
 			isa = PBXGroup;
 			children = (
+				262B4D8527D0C8BE0028800A /* View */,
+				262B4D8427D0C8B60028800A /* Model */,
 				266236B227CE251100C783D1 /* Presenter */,
 				266236A627CE229300C783D1 /* Assets.xcassets */,
 				266236AB27CE229300C783D1 /* Info.plist */,
@@ -162,7 +190,11 @@
 				2662369F27CE229200C783D1 /* SwipeView.swift in Sources */,
 				2662369B27CE229200C783D1 /* AppDelegate.swift in Sources */,
 				263E6B0A27CE443A00DDFE91 /* Constraints.swift in Sources */,
+				262B4D8727D0C8F40028800A /* SavedDataView.swift in Sources */,
 				263E6B0C27CE601000DDFE91 /* Gesture.swift in Sources */,
+				262B4D8D27D0D53E0028800A /* LoadImage.swift in Sources */,
+				262B4D8B27D0CC760028800A /* StructJSON.swift in Sources */,
+				262B4D8927D0CC400028800A /* ParsJSON.swift in Sources */,
 				2662369D27CE229200C783D1 /* SceneDelegate.swift in Sources */,
 				266236A527CE229300C783D1 /* StarTinder.xcdatamodeld in Sources */,
 			);

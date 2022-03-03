@@ -16,8 +16,8 @@ class SwipeView: UIViewController {
 	
 	let MarsPic: UIImageView = {
 		let image = UIImageView()
-		image.image = UIImage(named: "TestPic")
 		image.isUserInteractionEnabled = true
+		image.image = UIImage(named: "SpaceBackground")
 		image.translatesAutoresizingMaskIntoConstraints = false
 		return image
 	}()
@@ -31,11 +31,16 @@ class SwipeView: UIViewController {
 	}()
 	
 	var divisor: CGFloat?
+	var completionHandler: ((NasaJSON) -> ())?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		divisor = (view.frame.width / 2) / 0.61
- 		SetConstraints()		
-		
+		ParsJSON()
+		SetConstraints()
+		completionHandler = { NewJSON in
+			DispatchQueue.main.async {
+				self.loadImage(NewJSON)
+			}
+		}
 	}
 }
