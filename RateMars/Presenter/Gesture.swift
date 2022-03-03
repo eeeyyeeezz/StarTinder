@@ -2,50 +2,65 @@ import UIKit
 
 extension SwipeView{
 
-	@objc func handlePanGesture(gesture: UIPanGestureRecognizer){
-		let card = gesture.view!
-		let point = gesture.translation(in: view)
-		let xFromCenter = card.center.x - view.center.x
+	@objc func handlePanGesture(recognizer: UIPanGestureRecognizer){
 		
-		card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
-		
-		guard let divisor = self.divisor else { return }
-		
-		card.transform = CGAffineTransform(rotationAngle: xFromCenter / divisor)
-		
-		if xFromCenter > 0{
-			ThumbsPic.image = UIImage(named: "ThumbsUp")
-			ThumbsPic.tintColor = .green
-		} else{
-			ThumbsPic.image = UIImage(named: "ThumbsDown")
-			ThumbsPic.tintColor = .red
-		}
-		
-		ThumbsPic.alpha = abs(xFromCenter) / view.center.x
-		
-		if gesture.state == .ended{
+		if recognizer.state == .began {
 			
-			if card.center.x < 75 {
-				UIView.animate(withDuration: 0.3, animations: {
-					card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 50)
-					card.alpha = 0
-				})
-				return
-			} else if card.center.x > (view.frame.width - 75){
-				UIView.animate(withDuration: 0.3, animations: {
-					card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 50)
-					card.alpha = 0
-				})
-				return
+		} else if recognizer.state == .changed {
+			let translation = recognizer.translation(in: self.view)
+			tiltTheView()
+			
+			let newX = MarsPic.center.x + translation.x
+			let newY = MarsPic.center.y + 0
+			
+			MarsPic.center = CGPoint(x: newX, y: newY)
+			recognizer.setTranslation(CGPoint.zero, in: self.view)
+			if MarsPic.center.x - view.center.x > 0 {
+				ThumbsPic.image = UIImage(named: "ThumbsUp")
+				ThumbsPic.tintColor = .green
+				ThumbsPic.alpha = 1
+			} else if MarsPic.center.x - view.center.x < 0{
+				ThumbsPic.image = UIImage(named: "ThumbsDown")
+				ThumbsPic.tintColor = .red
+				ThumbsPic.alpha = 1
 			}
-			
-			
-			
-			UIView.animate(withDuration: 0, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-				card.center = self.view.center
-				self.ThumbsPic.alpha = 0
+		} else if recognizer.state == .ended { PicMakeDissapear() }
+	}
+	
+	fileprivate func	tiltTheView(){
+		let translationMoved = self.view.center.x - MarsPic.center.x
+		let divKoff = (self.view.frame.size.width / 2) / 0.6
+		
+		MarsPic.transform = CGAffineTransform(rotationAngle: translationMoved / divKoff)
+	}
+	
+	fileprivate func	PicMakeDissapear(){
+		var ToReturn: Bool = false
+		
+		if MarsPic.center.x < 20 {
+			UIView.animate(withDuration: 0.2, animations: { [unowned self] in
+				self.MarsPic.center.x = -self.MarsPic.frame.size.width
+				ToReturn = true
+			})
+		} else if MarsPic.center.x > self.view.frame.size.width - 20 {
+			UIView.animate(withDuration: 0.2, animations: { [unowned self] in
+				self.MarsPic.center.x = self.view.frame.size.width + self.MarsPic.frame.size.width
+				ToReturn = true
 			})
 		}
+		
+		if !ToReturn{
+			MarsPic.transform = CGAffineTransform(rotationAngle: 0)
+			UIView.animate(withDuration: 0.2, animations: { [unowned self] in
+				self.MarsPic.center.x = self.view.center.x
+			})
+		} else {
+			UIView.animate(withDuration: 0, delay: 1, options: [], animations: {
+				self.MarsPic.transform = .identity
+				self.MarsPic.center = self.view.center
+			})
+		}
+		ThumbsPic.alpha = 0
 	}
-
+	
 }

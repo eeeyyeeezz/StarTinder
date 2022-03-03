@@ -9,6 +9,7 @@ extension SwipeView{
 										 action: nil)
 		navigationItem.rightBarButtonItem = menuButton
 		navigationController!.navigationItem.rightBarButtonItem = menuButton
+		navigationController!.navigationItem.rightBarButtonItem?.tintColor = .white
 		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationController?.navigationBar.isTranslucent = true
