@@ -18,7 +18,9 @@ class SavedDataView: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.title = "Liked Pictures"
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deletePictures))
+		navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 		guard let savedImagesCV = self.savedImagesCV else { print("savedImagesCV in SavedDataView Error") ; return }
 		
 		if savedImagesCV.isEmpty{

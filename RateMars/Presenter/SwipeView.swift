@@ -25,7 +25,7 @@ class SwipeView: UIViewController {
 	let RateLabel: UILabel = {
 		let label = UILabel()
 		label.text = "Rate NASA Pic of the Day!"
-		label.font = label.font.withSize(30)
+		label.font = UIFont(name: "Apple Symbols", size: 35)
 		label.textColor = .white
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
