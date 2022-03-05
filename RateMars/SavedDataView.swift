@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class SavedDataView: UIViewController {
 
@@ -17,17 +18,37 @@ class SavedDataView: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deletePictures))
+		guard let savedImagesCV = self.savedImagesCV else { print("savedImagesCV in SavedDataView Error") ; return }
+		
+		if savedImagesCV.isEmpty{
+			navigationItem.rightBarButtonItem?.isEnabled = false
+		} else { navigationItem.rightBarButtonItem?.isEnabled = true }
 		view.backgroundColor = .white
-		print(savedImagesCV?.count)
 		SetConstraints()
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		let fetchRequest: NSFetchRequest<Pictures> = Pictures.fetchRequest()
+		
+		do {
+			savedImagesCV = try context.fetch(fetchRequest)
+		} catch let error as NSError {
+			print(error.localizedDescription)
+		}
+		
+	}
+	
 }
 
 extension SavedDataView{
 	
 	func SetConstraints(){
 		view.addSubview(SpaceBackground)
-		SavedDataCV.savedImagesCV = savedImagesCV
+		SavedDataCV.savedImagesCV = self.savedImagesCV
 		view.addSubview(SavedDataCV)
 		
 		NSLayoutConstraint.activate([
@@ -36,6 +57,27 @@ extension SavedDataView{
 			SavedDataCV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 			SavedDataCV.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
 		])
+	}
+	
+	@objc func deletePictures(){
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		let fetchRequest: NSFetchRequest<Pictures> = Pictures.fetchRequest()
+		navigationItem.rightBarButtonItem?.isEnabled = false
+		
+		if let profiles = try? context.fetch(fetchRequest){
+			for profile in profiles{
+				context.delete(profile)
+			}
+		}
+		
+		do {
+			try context.save()
+		} catch let error as NSError {
+			print(error.localizedDescription)
+		}
+		
+		SavedDataCV.reloadData()
 	}
 	
 }

@@ -10,7 +10,6 @@ extension SwipeView{
 		print(date)
 		
 		guard let url = URL(string: "https://api.nasa.gov/planetary/apod?date=" + date + "&api_key=4dNe0pRXtdbZOx172AwqWBMyBZpm3ofZCZmVefmn") else { return }
-		linkToSave = date
 		
 		let session = URLSession.shared.dataTask(with: url) { data, response, error in
 			if let error = error { print(error) ; return }
@@ -18,6 +17,7 @@ extension SwipeView{
 			
 			do {
 				let newJSON = try decoder.decode(NasaJSON.self, from: data)
+				self.linkToSave = newJSON.url
 				self.completionHandler?(newJSON)
 			} catch { print(error) ; self.ParsJSON() }
 		}

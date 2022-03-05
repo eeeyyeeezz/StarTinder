@@ -13,7 +13,7 @@ class SavedDataCollectionViewCell: UICollectionViewCell {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		backgroundColor = .orange
+		backgroundColor = nil
 		addSubview(profileImage)
 		NSLayoutConstraint.activate([
 			profileImage.widthAnchor.constraint(equalToConstant: 150),

@@ -32,17 +32,14 @@ extension SavedDataCollectionView: UICollectionViewDelegate, UICollectionViewDat
 		return cell
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: 150, height: 150)
-	}
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize { return CGSize(width: 150, height: 150) }
 	
 	private func setImage(indexPath: Int, profileImage: UIImageView){
 		guard let savedImagesCV = self.savedImagesCV else { print("savedImagesCV error") ; return }
 		let task = savedImagesCV[indexPath]
-		guard let userURL = task.pic else { profileImage.image = nil ; self.isScrollEnabled = false; return }
+		guard let picURL = task.pic else { profileImage.image = nil ; self.isScrollEnabled = false; return }
 		
-		guard let url = URL(string: userURL) else { print("UrlImageFromJson to Url Error") ; return }
-		
+		guard let url = URL(string: picURL) else { print("UrlImageFromJson to Url Error") ; return }
 		DispatchQueue.global().async {
 			guard let data = try? Data(contentsOf: url) else { return }
 			DispatchQueue.main.async { profileImage.image = UIImage(data: data) }
