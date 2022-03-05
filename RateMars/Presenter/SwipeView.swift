@@ -1,6 +1,7 @@
 // 4dNe0pRXtdbZOx172AwqWBMyBZpm3ofZCZmVefmn
 
 import UIKit
+import CoreData
 
 class SwipeView: UIViewController {
 
@@ -46,9 +47,10 @@ class SwipeView: UIViewController {
 		return image
 	}()
 	
+	var linkToSave: String?
 	var divisor: CGFloat?
 	var completionHandler: ((NasaJSON) -> ())?
-	var Pictures: [Pictures]?
+	var savedImages: [Pictures]?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -59,5 +61,19 @@ class SwipeView: UIViewController {
 				self.loadImage(NewJSON)
 			}
 		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		let context = appDelegate.persistentContainer.viewContext
+		let fetchRequest: NSFetchRequest<Pictures> = Pictures.fetchRequest()
+		
+		do {
+			savedImages = try context.fetch(fetchRequest)
+		} catch let error as NSError {
+			print(error.localizedDescription)
+		}
+		
 	}
 }

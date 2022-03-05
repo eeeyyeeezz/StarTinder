@@ -52,5 +52,10 @@ extension SwipeView{
 		SpacePic.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture)))
 	}
 	
-	@objc func GoToSavedDataView() { navigationController?.pushViewController(SavedDataView(), animated: true) }
+	@objc func GoToSavedDataView() {
+		let savedDataCV = SavedDataView()
+		savedDataCV.savedImagesCV = savedImages
+		navigationController?.pushViewController(savedDataCV, animated: true)
+		
+	}
 }

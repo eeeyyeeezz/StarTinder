@@ -1,4 +1,6 @@
 import UIKit
+import CoreData
+
 
 extension SwipeView{
 
@@ -36,12 +38,15 @@ extension SwipeView{
 	fileprivate func	PicMakeDissapear(){
 		var ToReturn: Bool = false
 		
+		
 		if SpacePic.center.x < 20 {
 			UIView.animate(withDuration: 0.2, animations: { [unowned self] in
 				self.SpacePic.center.x = -self.SpacePic.frame.size.width
 				ToReturn = true
 			})
 		} else if SpacePic.center.x > self.view.frame.size.width - 20 {
+			guard let linkToSave = self.linkToSave else { print("LinkToSave error") ; return }
+			saveToCoreData(imageToSave: linkToSave)
 			UIView.animate(withDuration: 0.2, animations: { [unowned self] in
 				self.SpacePic.center.x = self.view.frame.size.width + self.SpacePic.frame.size.width
 				ToReturn = true

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261A9DD127D367C400326DDC /* SavedDataCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261A9DD027D367C400326DDC /* SavedDataCollectionView.swift */; };
+		261A9DD327D36AC600326DDC /* SavedDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261A9DD227D36AC600326DDC /* SavedDataCollectionViewCell.swift */; };
+		261A9DD527D376BE00326DDC /* SaveToCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261A9DD427D376BE00326DDC /* SaveToCoreData.swift */; };
 		262B4D8727D0C8F40028800A /* SavedDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B4D8627D0C8F40028800A /* SavedDataView.swift */; };
 		262B4D8927D0CC400028800A /* ParsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B4D8827D0CC400028800A /* ParsJSON.swift */; };
 		262B4D8B27D0CC760028800A /* StructJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B4D8A27D0CC760028800A /* StructJSON.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		261A9DD027D367C400326DDC /* SavedDataCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDataCollectionView.swift; sourceTree = "<group>"; };
+		261A9DD227D36AC600326DDC /* SavedDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDataCollectionViewCell.swift; sourceTree = "<group>"; };
+		261A9DD427D376BE00326DDC /* SaveToCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveToCoreData.swift; sourceTree = "<group>"; };
 		262B4D8627D0C8F40028800A /* SavedDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDataView.swift; sourceTree = "<group>"; };
 		262B4D8827D0CC400028800A /* ParsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsJSON.swift; sourceTree = "<group>"; };
 		262B4D8A27D0CC760028800A /* StructJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructJSON.swift; sourceTree = "<group>"; };
@@ -49,12 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		261A9DCF27D367B100326DDC /* SavedDataCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				261A9DD027D367C400326DDC /* SavedDataCollectionView.swift */,
+				261A9DD227D36AC600326DDC /* SavedDataCollectionViewCell.swift */,
+			);
+			path = SavedDataCollectionView;
+			sourceTree = "<group>";
+		};
 		262B4D8427D0C8B60028800A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				262B4D8827D0CC400028800A /* ParsJSON.swift */,
 				262B4D8A27D0CC760028800A /* StructJSON.swift */,
 				262B4D8C27D0D53E0028800A /* LoadImage.swift */,
+				261A9DD427D376BE00326DDC /* SaveToCoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -62,6 +78,7 @@
 		262B4D8527D0C8BE0028800A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				261A9DCF27D367B100326DDC /* SavedDataCollectionView */,
 				262B4D8627D0C8F40028800A /* SavedDataView.swift */,
 			);
 			name = View;
@@ -187,14 +204,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261A9DD327D36AC600326DDC /* SavedDataCollectionViewCell.swift in Sources */,
 				2662369F27CE229200C783D1 /* SwipeView.swift in Sources */,
 				2662369B27CE229200C783D1 /* AppDelegate.swift in Sources */,
 				263E6B0A27CE443A00DDFE91 /* Constraints.swift in Sources */,
+				261A9DD127D367C400326DDC /* SavedDataCollectionView.swift in Sources */,
 				262B4D8727D0C8F40028800A /* SavedDataView.swift in Sources */,
 				263E6B0C27CE601000DDFE91 /* Gesture.swift in Sources */,
 				262B4D8D27D0D53E0028800A /* LoadImage.swift in Sources */,
 				262B4D8B27D0CC760028800A /* StructJSON.swift in Sources */,
 				262B4D8927D0CC400028800A /* ParsJSON.swift in Sources */,
+				261A9DD527D376BE00326DDC /* SaveToCoreData.swift in Sources */,
 				2662369D27CE229200C783D1 /* SceneDelegate.swift in Sources */,
 				266236A527CE229300C783D1 /* StarTinder.xcdatamodeld in Sources */,
 			);
